@@ -92,3 +92,7 @@ To extract the certificate chain (intermediate certificates), run the following 
 ```
 openssl pkcs12 -in filename.pfx -cacerts -nokeys -out cert_chain.pem
 ```
+
+# Import to Netlify
+![image.png](/.attachments/image-05636b63-541b-4f30-9ab1-3aec395487a2.png)
+![image.png](/.attachments/image-c1ff5dd6-45f5-4c5b-a236-677303198d2c.png)
