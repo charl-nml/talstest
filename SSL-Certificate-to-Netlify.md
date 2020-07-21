@@ -79,7 +79,7 @@ Write-Host "PFX password: $pfxPassword"
 Then run the following command with the appropriate values.
 `Export-AppServiceCertificate -loginId <NAME>@nml.co.za -subscriptionId <SUBSCRIPTION_ID> -resourceGroupName nml-web-prod -name <CERTIFICATE_NAME>`
 
-# Extracting the key, certficate and chain
+# Extracting the key, certficate, and chain
 To extract the private key, run the following commands. The first extracts the key with a password, the second then extracts the key without a password.
 ```
 openssl pkcs12 -in filename.pfx -nocerts -out cert_key.pem
