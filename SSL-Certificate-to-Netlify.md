@@ -13,6 +13,7 @@
     - The values must be copied only from `-----BEGIN CERTIFICATE-----` and `-----BEGIN RSA PRIVATE KEY-----` 
 
 # Exporting the certificate from Azure
+Run the following script.
 ```
 Function Export-AppServiceCertificate
 {
@@ -75,6 +76,8 @@ Write-Warning "For security reasons, do not store the PFX password. Use it direc
 Write-Host "PFX password: $pfxPassword"
 }
 ```
+Then run the following command with the appropriate values.
+`Export-AppServiceCertificate -loginId <NAME>@nml.co.za -subscriptionId <SUBSCRIPTION_ID> -resourceGroupName nml-web-prod -name <CERTIFICATE_NAME>`
 
 # Extracting the key, certficate and chain
 To extract the private key, run the following commands. The first extracts the key with a password, the second then extracts the key without a password.
