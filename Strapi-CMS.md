@@ -4,8 +4,11 @@
 - Docker Desktop
   - Image for MySql `docker pull mysql`
   - Image for PhpMyAdmin `docker pull phpmyadmin
+- Azure Storage Emulator
+  - Azurite
+  - Azure Storage Explorer
 
-# Run containers
+# MySQL and PhpMyAdmin
 ## Environment variables
 In order to start the containers via `docker compose` you need to create an environment variables file called `.docker-compose.env` in the root of the repository. 
 > Do not add `.docker-compose.env` to the Git repository, because each developer should have their own version of it. It has been added to `.gitignore`
@@ -47,34 +50,49 @@ Select the `nmlcozacms` database on the schemas list on the left, and click `Imp
 Choose the generated file and click `Import`. You will receive a success message once done.
 ![image.png](/.attachments/image-23aa1f7a-b168-42b2-8562-8ac3b9a2b875.png)
 
-# Connect your local Strapi to MySql
+# Azure Storage
+Strapi is configured to store media in an Azure Storage Account. Azurite is an Azure Storage emulator that allows local development without requiring Azure cloud instances.
+
+## Azurite
+Run `npm install -g azurite`
+
+## Azure Storage Explorer
+Download it from https://azure.microsoft.com/en-us/products/storage/storage-explorer/
+
+# Configuring Strapi
 You have to create a `.env` file that contains all the required environment variables.
 > Do not add `.env` to the Git repository, because each developer should have their own version of it. It has been added to `.gitignore`
 
 ## Example `.env` file
 ```
 ## Server Settings
-
 HOST=0.0.0.0
 PORT=1337
 APP_KEYS=8dcahebn5mv5QJ9yph8Fjhh7XLFfD6LRm9kKzQ8gmS9j8mCvhm5oyRHXYecdKm3k
 
 ## Admin Settings
-
 API_TOKEN_SALT=9330263905638372362899741297207425673667696883050127399996218280
 ADMIN_JWT_SECRET=8736888659206575320574611605661536169786317448846709052475511494
 
 ## Users-Permissions Plugin Settings
-
 JWT_SECRET=eKMGOvS9QTwiWSqMWLh03Q==
 
 ## Database Settings
-
 MYSQL_SERVER=localhost
 MYSQL_DATABASE=nmlcozacms
 MYSQL_USER_NAME=root
 MYSQL_PASSWORD=This-Should-Be-Your-Own-Password
 
+##Storage settings
+STORAGE_ACCOUNT=devstoreaccount1
+STORAGE_ACCOUNT_KEY=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+STORAGE_URL=http://127.0.0.1:10000/devstoreaccount1
+STORAGE_HOST=127.0.0.1:10000
+STORAGE_CONTAINER_NAME=ct-nmlcoza-cms
+
+
+## General
+STRAPI_LOG_LEVEL=trace
 ```
 You should generate your own `APP_KEYS`, `API_TOKEN` and `ADMIN_JWT_SECRET` values, but it isn't required for development environments.
 
