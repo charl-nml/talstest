@@ -5,5 +5,5 @@ Create a `.env` in the root of Next.js app and add an environment variable for `
 
 ## Example `.env` file ##
 ```
-NEXT_PUBLIC_STRAPI_API_URL=http://localhost:1337
+NEXT_PUBLIC_STRAPI_API_URL=http://localhost:3036
 ```
