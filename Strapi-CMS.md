@@ -3,7 +3,7 @@
 - Source code for `cms.nml.co.za` repository
 - Docker Desktop
   - Image for MySql `docker pull mysql`
-  - Image for PhpMyAdmin `docker pull phpmyadmin
+  - Image for PhpMyAdmin `docker pull phpmyadmin`
 - Azure Storage Emulator
   - Azurite
   - Azure Storage Explorer
