@@ -1,3 +1,7 @@
+## Deployment
+
+The application is deployed on [Netlify](```https://www.netlify.com/```)
+
 There are 2 environments each corresponding to a branch on the repository:
 
 Production - master branch (https://nml-site.netlify.app)
