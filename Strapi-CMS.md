@@ -4,8 +4,38 @@ Migration of structure and data in Strapi can be done in 3 ways, each with pros 
 ## Import/Export plugin
 The plugin allows for the export and import of structure and data between environments. 
 
-##Export, Import, and Transfer
+> Note that the import/export plugin does not seem to import/export content files like images and documents. You will have to manually move those between environments (copy/paste)
 
+The plugin can be found in the Strapi administration interface.
+![image.png](/.attachments/image-c9bbaf08-2f47-48a9-9ce4-4226b7dfe1f0.png)
+
+To export, click the `Export` button and select the appropriate settings.
+![image.png](/.attachments/image-72b91d54-27d9-45df-8d09-f7d9956956f1.png)
+
+To import, click the `Import` button and add the import file.
+![image.png](/.attachments/image-a91cb689-197b-401e-82cf-28ace388ce49.png)
+
+##Export, Import, and Transfer
+Strapi CLI support functionality to move Strapi structure, data and content. See the [Strapi Data Management documentation](https://docs.strapi.io/dev-docs/data-management) for more information and usage.
+
+> Note that `transfer` does not seem to be supported in Strapi versions 4.6 and lower. You will have to export, copy the file to the destination and import.
+
+> Note that these migration methods replace all existing structure, data and content.
+
+To export, open a command line (on Azure you can run this on the SSH virtual terminal for an App Service), change the directory to the root or the CMS web app and run the command:
+`node node_modules/@strapi/strapi/bin/strapi.js export -f <FILE_NAME>`
+
+![image.png](/.attachments/image-d355f1bb-2122-4b8b-bd02-5a240f258caa.png)
+
+To import, open a command line (on Azure you can run this on the SSH virtual terminal for an App Service), change the directory to the root of the CMS web app and run the command: 
+`node node_modules/@strapi/strapi/bin/strapi.js import -f <FILE_NAME>`
+
+## Database backup and restore
+You can create a backup of a Strapi database and restore it to a different environment.
+
+> Note that a database backup and restore do not move content files like images and documents. You will have to manually move those between environments (copy/paste)
+
+See [Export from UAT](https://dev.azure.com/NewMediaLabs/nml.co.za/_wiki/wikis/nml.co.za.wiki/3472/Strapi-CMS?_a=edit&anchor=export-from-uat) below for more information.
 
 # Running Strapi locally for development
 ## Prequisites
@@ -22,7 +52,7 @@ The plugin allows for the export and import of structure and data between enviro
 In order to start the containers via `docker compose` you need to create an environment variables file called `.docker-compose.env` in the root of the repository. 
 > Do not add `.docker-compose.env` to the Git repository, because each developer should have their own version of it. It has been added to `.gitignore`
 
-Add a environment variable line for `MYSQL_ROOT_PASSWORD`:
+Add an environment variable line for `MYSQL_ROOT_PASSWORD`:
 ```
 MYSQL_ROOT_PASSWORD=This-Should-Be-Your-Own-Password
 ```
