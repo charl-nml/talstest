@@ -20,3 +20,7 @@ The continuous integration (CI) build runs for PRs and changes to the `main` bra
 The continuous deployment (CD) builds are configured to run using the equivalent environment CMS by default, but this can be explicitly specified for testing and sign-off reasons. 
 
 The UAT CD build runs automatically on merge changes to `main`. The production CD build runs on-demand only.
+
+The setup is configured this way to allow the development team to test and sign off both production content-only changes and CMS structure changes in UAT, before going live.
+
+## Creating a UAT build for production content-only changes
