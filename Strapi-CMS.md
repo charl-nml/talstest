@@ -1,3 +1,12 @@
+# Migration between environments
+Migration of structure and data in Strapi can be done in 3 ways, each with pros and cons.
+
+## Import/Export plugin
+The plugin allows for the export and import of structure and data between environments. 
+
+##Export, Import, and Transfer
+
+
 # Running Strapi locally for development
 ## Prequisites
 - Source code for `cms.nml.co.za` repository
